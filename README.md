@@ -1,5 +1,5 @@
-This project Create by Arya Bandhu
-# Getting Started with Create React App
+Project Create by Arya Bandhu
+# Text App: Lowercase Uppercase | Word Counter | Text Voice
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
