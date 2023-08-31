@@ -1,6 +1,8 @@
 Project Create by Arya Bandhu
 # Text App: Lowercase Uppercase | Word Counter | Text Voice
 
+![Text react app image](https://shorturl.at/bGIS9)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
