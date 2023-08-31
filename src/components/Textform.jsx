@@ -34,6 +34,7 @@ export default function Textform(props) {
   // for copy text
   const textcopy = () => {
       copy(copyText);
+      document.getSelection().removeAllRanges();
       alert(`You have copied "${copyText}"`);
   }
 
@@ -65,7 +66,7 @@ export default function Textform(props) {
   }
 
   // word counter logic 
-  const totleWord = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+  const totleWord = text.trim( ) === '' ? 0 : text.trim().split(/\s+/).length;
 
   return (
     <>
@@ -84,19 +85,19 @@ export default function Textform(props) {
             placeholder="Enter Text Here..."
           ></textarea>
         </div>
-        <button className="btn btn-warning " onClick={textuppercase}>
+        <button disabled = { text.length ===0 } className="btn btn-warning my-1" onClick={textuppercase}>
           Convert Uppercase{" "}
         </button>
-        <button className="btn btn-primary ms-3" onClick={textlowercase}>
+        <button disabled = { text.length ===0 } className="btn btn-primary ms-3 my-1" onClick={textlowercase}>
           Convert Lowercase{" "}
         </button>
-        <button className="btn btn-success ms-3" onClick={textspeak}>
+        <button disabled = { text.length ===0 } className="btn btn-success ms-3 my-1" onClick={textspeak}>
           Speak Text
         </button>
-        <button type="button" class="btn btn-secondary ms-3" onClick={textcopy}>
+        <button disabled = { text.length ===0 } type="button" className="btn btn-secondary ms-3 my-1" onClick={textcopy}>
           Copy Text 
         </button>
-        <button type="button" class="btn btn-danger ms-3" onClick={textclear}>
+        <button disabled = { text.length ===0 } type="button" className="btn btn-danger ms-3 my-1" onClick={textclear}>
           Clear Text
         </button>
       </div>

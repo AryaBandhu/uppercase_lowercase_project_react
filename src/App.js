@@ -1,9 +1,15 @@
 import "./App.css";
 import WebNevbar from "./components/web_nevbar";
-// import Carousels from "./components/carousels";
 import Textform1 from "./components/Textform";
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import Alert from "./components/Alert";
+import About from "./components/About";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+} from "react-router-dom";
+
 function App() {
 
   const [text, textMode] = useState('primary');
@@ -67,23 +73,27 @@ function App() {
   
   return (
     <>
-      <div className="App">
-        <WebNevbar tittle ="Arya Bandhu" other = "Service not Working" 
-          mode={mode} 
-          nevtext={nevtext}
-          darktoggleMode={darktoggleMode} 
-          redtoggleMode={redtoggleMode} 
-          greentoggleMode={greentoggleMode}
-          yellowtoggleMode={yellowtoggleMode}
-        />
-        {/* <Carousels /> */}
-        <Alert alerts={alert}/>
-
-        <div className="container mt-5">
-          <Textform1 tittle="Mini Application" mode={mode} text={text}/>
+      <Router>
+        <div className="App">
+          <WebNevbar tittle ="Arya Bandhu" other = "Service not Working" 
+            mode={mode} 
+            nevtext={nevtext}
+            darktoggleMode={darktoggleMode} 
+            redtoggleMode={redtoggleMode} 
+            greentoggleMode={greentoggleMode}
+            yellowtoggleMode={yellowtoggleMode}
+          />
+          <Alert alerts={alert}/>
+          <Routes>
+            <Route path="/about" element={<About />} />
+            <Route path="/" element={
+                  <div className="container mt-5">
+                      <Textform1 tittle="Mini Application" mode={mode} text={text}/>
+                  </div>} 
+            />
+          </Routes>
         </div>
-        
-      </div>
+      </Router>
     </>
   );
 }

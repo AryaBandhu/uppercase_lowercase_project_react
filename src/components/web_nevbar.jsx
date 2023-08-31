@@ -1,5 +1,6 @@
 import React from "react";
 import proptype from "prop-types";
+import { Link } from "react-router-dom";
 
 function web_nevbar(props) {
 
@@ -29,9 +30,9 @@ function web_nevbar(props) {
     <>
       <nav className="navbar navbar-expand-lg" style={theme} data-bs-theme={`${props.nevtext}`} >
         <div className="container-fluid">
-          <a className="navbar-brand" href="...">
+          <Link className="navbar-brand" to="/">
             {props.tittle}
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -46,14 +47,14 @@ function web_nevbar(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="...">
+                <Link className="nav-link active" aria-current="page" to="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="...">
-                  Link
-                </a>
+                <Link className="nav-link" to="/about">
+                  About
+                </Link>
               </li>
               <li className="nav-item dropdown">
                 <a
