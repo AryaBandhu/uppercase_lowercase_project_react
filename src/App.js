@@ -88,7 +88,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/" element={
                   <div className="container mt-5">
-                      <Textform1 tittle="Mini Application" mode={mode} text={text}/>
+                      <Textform1 tittle="Text Manipulator: Uppercase | Lowercase | Word Counter" mode={mode} text={text}/>
                   </div>} 
             />
           </Routes>

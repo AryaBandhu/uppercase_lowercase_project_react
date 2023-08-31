@@ -71,7 +71,7 @@ export default function Textform(props) {
   return (
     <>
       <div>
-        <h1 className={`text-${props.text}`} >{props.tittle}</h1>
+        <h1 className={`text-${props.text} mb-4`} >{props.tittle}</h1>
         <div className="mb-3">
           <textarea
             className={`form-control 
