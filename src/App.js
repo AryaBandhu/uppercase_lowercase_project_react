@@ -2,99 +2,40 @@ import "./App.css";
 import WebNevbar from "./components/web_nevbar";
 import Textform1 from "./components/Textform";
 import React, { useState } from 'react';
-import Alert from "./components/Alert";
-import About from "./components/About";
 import {
   BrowserRouter as Router,
   Route,
   Routes,
 } from "react-router-dom";
+import Theme from "./components/Theme";
 
 function App() {
 
-  const [text, textMode] = useState('primary');
-  const [mode, setMode] = useState('light');
-  const [nevtext, setnevtext] = useState('light');
+  const [colorScheme,setColorScheme] = useState("cupcake")
+  const countryNames = ["London","Amsterdam","Andorra","Astrakhan","Athens","Belfast","Belgrade","Berlin","Bratislava","Brussels","Bucharest","Budapest","Busingen","Chisinau","Copenhagen","Dublin","Gibraltar","Guernsey","Helsinki","Isle_of_Man","Istanbul","Jersey","Kaliningrad","Kiev","kirov","Kiev","Lisbon","Ljubljana","Luxembourg","Madrid","Malta","Mariehamn","Minsk","Monaco","Moscow","Nicosia","Oslo","Paris","Podgorica","Prague","Riga","Rome","Samara","San_Marino","Sarajevo","Saratov","Simferopol","Skopje","Sofia","StockHolm","Tallinn","Tirane","Tiraspol","Ulyanovsk","Uzhgorod","Vaduz","Vatican","Vienna","Vilnius","Volgograd","Warsaw","Zagreb","Zaporozhye","Zurich"]
 
-  let darktoggleMode = () => {
-    if(mode === 'light'){
-      setMode('dark');
-      setnevtext('dark')
-      textMode('primary')
-      document.body.style.backgroundColor = '#495057'
-      showAlert("Dark mode Activated !!" , "Success");
-    }
-    else{
-      setMode('light');
-      setnevtext('light')
-      textMode('primary')
-      document.body.style.backgroundColor = 'white'
-      showAlert("Light mode Activated !!" , "Success");
-    }
-  };
+  for (let i of countryNames) {
+    const options = { timeZone: `Europe/${i}` };
+    const formatter = new Intl.DateTimeFormat('en-GB', options)
+    console.log(formatter.resolvedOptions().timezone)
+  }
 
-  let redtoggleMode = () => {
-      setMode('red');
-      textMode('warning')
-      setnevtext('dark')
-      document.body.style.backgroundColor = '#d94250'
-      showAlert("Red Theme Activated !!" , "Success");
-  };
-
-  let greentoggleMode = () => {
-    setMode('green');
-    setnevtext('dark')
-    textMode('primary')
-    document.body.style.backgroundColor = '#66e366'
-    showAlert("Green Theme Activated !!" , "Success");
-  };
-
-  let yellowtoggleMode = () => {
-    setMode('yellow');
-    setnevtext('light')
-    textMode('primary')
-    document.body.style.backgroundColor = '#eeff4d'
-    showAlert("Yellow Theme Activated !!" , "Success");
-  };
-
-  // this function create for Alert feture 
-  const [alert, setAlert] = useState(null);
-
-  let showAlert = (massage , type) => {
-    setAlert({
-      msg : massage,
-      type : type
-    })
-
-    setTimeout(() => {
-      setAlert(null)
-    }, 1000);
-  };
-  
   return (
-    <>
+    <main data-theme={colorScheme} className="min-h-screen">
       <Router>
         <div className="App">
-          <WebNevbar tittle ="Arya Bandhu" other = "Service not Working" 
-            mode={mode} 
-            nevtext={nevtext}
-            darktoggleMode={darktoggleMode} 
-            redtoggleMode={redtoggleMode} 
-            greentoggleMode={greentoggleMode}
-            yellowtoggleMode={yellowtoggleMode}
-          />
-          <Alert alerts={alert}/>
+          <WebNevbar title ="Arya Bandhu" other = "Service not Working" />
           <Routes>
-            <Route path="/about" element={<About />} />
+          <Route path="/themes" element={<Theme colorScheme={colorScheme} setColorScheme={setColorScheme} />} />
             <Route path="/" element={
                   <div className="container mt-5">
-                      <Textform1 tittle="Text Manipulator: Uppercase | Lowercase | Word Counter" mode={mode} text={text}/>
+                      <Textform1 tittle="Text Manipulator: Uppercase | Lowercase | Word Counter" colorScheme={colorScheme} />
                   </div>} 
             />
           </Routes>
         </div>
       </Router>
-    </>
+    </main>
   );
 }
 
