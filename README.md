@@ -3,7 +3,7 @@ Project Create by Arya Bandhu
 
 ![Text react app image](https://shorturl.at/bGIS9)
 
-## Thank you [Shubham-Tiwari-Anywhere](http://localhost:3000)
+## Thank you [Shubham-Tiwari-Anywhere](https://github.com/Shubham-Tiwari-Anywhere)
 ![Text react app image](https://shorturl.at/CGSX4)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
